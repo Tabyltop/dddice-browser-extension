@@ -146,7 +146,6 @@ const DddiceSettings = (props: DddiceSettingsProps) => {
       let customConfiguration = await storageProvider.getStorage('customConfiguration');
       if (customConfiguration) {
         const elapsedTime = Date.now() - customConfiguration.lastUpdated;
-        console.log(elapsedTime);
         if (elapsedTime > 30000) {
           // customConfiguration is older than 30 seconds, so we don't trust it
           customConfiguration = undefined;

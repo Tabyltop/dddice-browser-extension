@@ -9,7 +9,6 @@ const log = createLogger('Tabyltop');
 log.info('DDDICE Tabyltop loaded');
 
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-  console.log('Got message', message);
   if (message.type === 'health') {
     window.postMessage(message, document.location.origin);
     sendResponse(true);
@@ -29,12 +28,10 @@ window.addEventListener('message', async function (event) {
     return;
   }
   if (messageData.action === 'healthRequest') {
-    console.log('Got health request');
     chrome.runtime.sendMessage({ type: 'healthRequest' });
     return;
   }
   if (messageData.action === 'enableCustomConfiguration') {
-    console.log('Enabling custom configuration');
     chrome.runtime.sendMessage({
       type: 'enableCustomConfiguration',
       customConfiguration: messageData.customConfiguration,
