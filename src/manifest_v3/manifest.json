@@ -75,8 +75,7 @@
         "../tabyltop.tsx"
       ],
       "matches": [
-        "*://*.tabyltop.com/*",
-        "*://localhost/*"
+        "*://*.tabyltop.com/*"
       ],
       "run_at": "document_idle"
     }
